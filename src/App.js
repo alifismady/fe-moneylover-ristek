@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Flowbite } from 'flowbite-react'
+
+import { useAuthContext } from './hooks/useAuthContext'
+
+import Landing from './pages/Landing'
+import Register from './pages/authentication/Register'
+import Login from './pages/authentication/Login'
+import Dashboard from './pages/dashboard/Dashboard'
+import Transaction from './pages/transaction/Transaction'
+import Analytics from './pages/analytics/Analytics'
 
 function App() {
+  const { user } = useAuthContext()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex">
+      <BrowserRouter>
+        <Flowbite>
+          <Routes>
+            <Route path="/" element={user ? <Dashboard /> : <Landing />} />
+            <Route
+              path="/dashboard"
+              element={user ? <Dashboard /> : <Landing />}
+            />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/transaction"
+              element={user ? <Transaction /> : <Landing />}
+            />
+            <Route
+              path="/analytics"
+              element={user ? <Analytics /> : <Landing />}
+            />
+          </Routes>
+        </Flowbite>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
