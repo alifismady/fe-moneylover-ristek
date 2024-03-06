@@ -71,57 +71,6 @@ export default function Register() {
           </form>
         </Card>
       </div>
-      {/* <div className="flex grow flex-col justify-center items-center h-screen overflow-y-auto w-full">
-        <h2>Register Form</h2>
-        <form
-        className="flex max-w-md flex-col gap-4 w-3/5"
-        onSubmit={handleSubmit}
-        >
-        <div>
-        <div className="mb-2 block">
-        <Label value="Username" />
-        </div>
-        <TextInput
-              id="text"
-              type="text"
-              placeholder="Enter Your Username"
-              required
-              onChange={(e) => setUsername(e.target.value)}
-              value={username}
-            />
-          </div>
-          {error && <div className="text-sm text-red-500">{error}</div>}
-          <div className="">
-            <div className="mb-2 block">
-              <Label value="Password" />
-            </div>
-            <TextInput
-              id="password1"
-              type="password"
-              placeholder="Enter Your Password"
-              required
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-            />
-          </div>
-
-          <div className="flex items-center gap-2 mt-2">
-            <Label htmlFor="agree" className="flex">
-              Already have an account?&nbsp;
-              <Link
-                to="/login"
-                className="text-cyan-600 hover:underline dark:text-cyan-500"
-              >
-                Sign in here !
-              </Link>
-            </Label>
-          </div>
-
-          <Button type="submit" disabled={isLoading}>
-            Sign Up
-          </Button>
-        </form>
-      </div> */}
     </>
   )
 }
